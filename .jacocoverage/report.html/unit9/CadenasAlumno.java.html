@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CadenasAlumno.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;unit9&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">unit9</a> &gt; <span class="el_source">CadenasAlumno.java</span></div><h1>CadenasAlumno.java</h1><pre class="source lang-java linenums">package unit9;
+
+import static java.lang.System.out;
+
+/**
+ *
+ * @author Luis Miguel
+ */
+<span class="fc" id="L9">public class CadenasAlumno {</span>
+    /**
+     * Metodo que compara si dos cadenas son iguales
+     * @param cadena1: primera cadena a comparar
+     * @param cadena2: segunda cadena a comparar
+     * @return devuelve true si son iguales false en caso contrario
+     */
+    public boolean sonIguales(String cadena1, String cadena2){
+<span class="fc" id="L17">        int l1 = cadena1.length(), l2 = cadena2.length();</span>
+<span class="fc" id="L18">        boolean iguales = true;</span>
+        
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if(l1!=l2) iguales = false; // Si ya vemos que son de diferentes tamaño no comprobamos nada más</span>
+        
+<span class="fc" id="L22">        char [] vector1 = cadena1.toCharArray(); // Convierto el String a vector de caracteres</span>
+<span class="fc" id="L23">        char [] vector2 = cadena2.toCharArray();</span>
+        
+<span class="fc bfc" id="L25" title="All 4 branches covered.">        for(int i = 0; i &lt; l1 &amp;&amp; iguales; i++){</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">            if(vector1[i] != vector2[i])</span>
+<span class="nc" id="L27">                iguales = false;</span>
+        }
+<span class="fc" id="L29">        return iguales;</span>
+    }
+    /**
+     * Metodo que compara si la primera cadena es mayor a la segunda
+     * @param cadena1: primera cadena a comparar
+     * @param cadena2: segunda cadena a comparar
+     * @return devuelve true si la primera cadena es mayor a la segunda
+     */
+    public boolean esMayor(String cadena1, String cadena2){
+<span class="fc" id="L38">        int l1 = cadena1.length(), l2 = cadena2.length();</span>
+<span class="fc" id="L39">        boolean mayor = false;        </span>
+<span class="fc" id="L40">        char [] vector1 = cadena1.toCharArray(); // Convierto el String a vector de caracteres</span>
+<span class="fc" id="L41">        char [] vector2 = cadena2.toCharArray();</span>
+<span class="fc" id="L42">        int i = 0;</span>
+<span class="pc bpc" id="L43" title="1 of 6 branches missed.">        for(; i &lt; l1 &amp;&amp; !mayor &amp;&amp; i &lt; l2; i++){</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            if(vector1[i] &gt; vector2[i])</span>
+<span class="fc" id="L45">                mayor = true;</span>
+        }
+<span class="pc bpc" id="L47" title="1 of 4 branches missed.">        if(i &lt; l1 &amp;&amp; i == l2) mayor = true;</span>
+<span class="fc" id="L48">        return mayor;</span>
+    }
+    /**
+     * Metodo que compara si la primera cadena es menor a la segunda
+     * @param cadena1: primera cadena a comparar
+     * @param cadena2: segunda cadena a comparar
+     * @return devuelve true si la primera cadena es menor a la segunda
+     */
+    public boolean esMenor(String cadena1, String cadena2){
+<span class="fc" id="L57">        int l1 = cadena1.length(), l2 = cadena2.length();</span>
+<span class="fc" id="L58">        boolean menor = false;        </span>
+<span class="fc" id="L59">        char [] vector1 = cadena1.toCharArray(); // Convierto el String a vector de caracteres</span>
+<span class="fc" id="L60">        char [] vector2 = cadena2.toCharArray();</span>
+<span class="fc" id="L61">        int i = 0;</span>
+<span class="pc bpc" id="L62" title="1 of 6 branches missed.">        for(; i &lt; l1 &amp;&amp; !menor &amp;&amp; i &lt; l2; i++){</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">            if(vector1[i] &lt; vector2[i])</span>
+<span class="fc" id="L64">                menor = true;</span>
+        }
+<span class="pc bpc" id="L66" title="1 of 4 branches missed.">        if(i == l1 &amp;&amp; i &lt; l2) menor = true;</span>
+<span class="fc" id="L67">        return menor;</span>
+    }
+    /**
+     * Metodo que compara si son iguales ignorando mayúsculas/minúsculas
+     * @param cadena1: primera cadena a comparar
+     * @param cadena2: segunda cadena a comparar
+     * @return devuelve true si las cadenas son iguales aunque hayan mayúsculas o minúsculas
+     */
+    public boolean comparaIgnorandoMayusculas(String cadena1, String cadena2){
+<span class="fc" id="L76">        int l1 = cadena1.length(), l2 = cadena2.length();</span>
+<span class="fc" id="L77">        boolean iguales = true;</span>
+        
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">        if(l1!=l2) iguales = false; // Si ya vemos que son de diferentes tamaño no comprobamos nada más</span>
+        
+<span class="fc" id="L81">        char [] vector1 = convertirMayusculas(cadena1).toCharArray(); // Convierto el String a vector de caracteres</span>
+<span class="fc" id="L82">        char [] vector2 = convertirMayusculas(cadena2).toCharArray();</span>
+        
+<span class="pc bpc" id="L84" title="2 of 4 branches missed.">        for(int i = 0; i &lt; l1 &amp;&amp; iguales; i++){</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">            if(vector1[i] != vector2[i])</span>
+<span class="nc" id="L86">                iguales = false;</span>
+        }
+<span class="fc" id="L88">        return iguales;</span>
+    }
+    /**
+     * Metodo que reemplaza todas las ocurrencias de regla en cadena por la cadena a reemplazar
+     * @param cadena: primera cadena a comparar
+     * @param regla: patrón a buscar en la cadena para sustituir
+     * @param cambio: cadena a sustituir en cadena si se ha encontrado la regla
+     * @return devuelve la cadena reemplazada
+     */
+    public String reemplazaTodos(String cadena, String regla, String cambio){
+<span class="fc" id="L98">        String reemplazada = &quot;&quot;;</span>
+<span class="fc" id="L99">        char [] cad = cadena.toCharArray();</span>
+<span class="fc" id="L100">        char [] patron = regla.toCharArray();</span>
+<span class="fc" id="L101">        char [] replacement = cambio.toCharArray();</span>
+<span class="fc" id="L102">        int [] posicion = apareceEn(cadena, regla);</span>
+        
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">        if(posicion[0] != - 1){ // Existe esa regla en la cadena</span>
+<span class="fc" id="L105">            int j = 0;</span>
+<span class="pc bpc" id="L106" title="2 of 6 branches missed.">            for(int i = 0; i &lt; posicion.length &amp;&amp; j &lt; cad.length &amp;&amp; posicion[i] != -1; i++){</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">                for(; j &lt; posicion[i]; j++){</span>
+<span class="fc" id="L108">                    reemplazada += cad[j];</span>
+                }
+<span class="fc" id="L110">                j = posicion[i] + patron.length;</span>
+                
+<span class="fc bfc" id="L112" title="All 2 branches covered.">                for(int z = 0; z &lt; replacement.length; z++){</span>
+<span class="fc" id="L113">                    reemplazada += replacement[z];</span>
+                }
+            }
+<span class="fc bfc" id="L116" title="All 2 branches covered.">            for(; j &lt; cad.length; j++){</span>
+<span class="fc" id="L117">                reemplazada += cad[j];</span>
+            }
+        }
+<span class="fc" id="L120">        return reemplazada;</span>
+    }
+    /**
+     * Metodo que reemplaza sólo la primera ocurrencia de regla en cadena por 
+     * la cadena a reemplazar
+     * @param cadena: primera cadena a comparar
+     * @param regla: patrón a buscar en la cadena para sustituir
+     * @param cambio: cadena a sustituir en cadena si se ha encontrado la regla
+     * @return devuelve la cadena reemplazada
+     */
+    public String reemplazaPrimero(String cadena, String regla, String cambio){
+<span class="fc" id="L131">        String reemplazada = &quot;&quot;;</span>
+<span class="fc" id="L132">        char [] cad = cadena.toCharArray();</span>
+<span class="fc" id="L133">        char [] patron = regla.toCharArray();</span>
+<span class="fc" id="L134">        char [] replacement = cambio.toCharArray();</span>
+<span class="fc" id="L135">        int [] posicion = apareceEn(cadena, regla);</span>
+        
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">        if(posicion[0] != - 1){ // Existe esa regla en la cadena</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">            for(int i = 0; i &lt; posicion[0]; i++){</span>
+<span class="nc" id="L139">                reemplazada += cad[i];</span>
+            }
+<span class="fc bfc" id="L141" title="All 2 branches covered.">            for(int i = 0; i &lt; replacement.length; i++){</span>
+<span class="fc" id="L142">                reemplazada += replacement[i];</span>
+            }
+<span class="fc bfc" id="L144" title="All 2 branches covered.">            for(int i = posicion[0] + regla.length(); i &lt; cad.length; i++){</span>
+<span class="fc" id="L145">                reemplazada += cad[i];</span>
+            }
+        }        
+<span class="fc" id="L148">        return reemplazada;</span>
+    }
+    
+    /**
+     * Método que elimina los espacios que se encuentran en una cadena
+     * @param cadena:cadena a eliminar sus espacios
+     * @return: cadena sin espacios
+     */
+    public String quitaEspacios(String cadena){
+<span class="fc" id="L157">        String sinEspacios=&quot;&quot;;</span>
+<span class="fc" id="L158">        char [] cad = cadena.toCharArray();</span>
+        
+<span class="fc bfc" id="L160" title="All 2 branches covered.">        for(int i = 0; i&lt; cad.length; i++){</span>
+<span class="pc bpc" id="L161" title="1 of 4 branches missed.">            if(cad[i] != ' ' || cad[i] != 32){</span>
+<span class="fc" id="L162">                sinEspacios += cad[i];</span>
+            }
+        }
+<span class="fc" id="L165">        return sinEspacios;</span>
+    }
+    /**
+     * Método que convierte todos los caracteres de una cadena a mayúsculas
+     * @param cadena:cadena a convertir
+     * @return: cadena convertida a mayúsculas
+     */
+    public String convertirMayusculas(String cadena){
+<span class="fc" id="L173">        String mayus = &quot;&quot;;</span>
+<span class="fc" id="L174">        char [] cad = cadena.toCharArray();</span>
+        
+<span class="fc bfc" id="L176" title="All 2 branches covered.">        for(int i = 0; i &lt; cad.length; i++){</span>
+<span class="pc bpc" id="L177" title="1 of 4 branches missed.">            if(cad[i]&gt;= 'a' &amp;&amp; cad[i]&lt;= 'z'){</span>
+<span class="fc" id="L178">                mayus += (char)(cad[i] - ('a' - 'A'));</span>
+            }
+            else {
+<span class="pc bpc" id="L181" title="1 of 2 branches missed.">                if(cad[i] == 'ñ'){</span>
+<span class="nc" id="L182">                    mayus += 'Ñ';</span>
+                }
+                else {
+<span class="fc" id="L185">                    mayus += cad[i];</span>
+                }
+            }
+        }
+<span class="fc" id="L189">        return mayus;</span>
+    }
+    /**
+     * Método que convierte todos los caracteres de una cadena a minúsculas
+     * @param cadena:cadena a convertir
+     * @return: cadena convertida a minúsculas
+     */    
+    public String convertirMinusculas(String cadena){
+<span class="fc" id="L197">        String minus = &quot;&quot;;</span>
+<span class="fc" id="L198">        char [] cad = cadena.toCharArray();</span>
+
+<span class="fc bfc" id="L200" title="All 2 branches covered.">        for(int i = 0; i &lt; cad.length; i++){</span>
+<span class="pc bpc" id="L201" title="1 of 4 branches missed.">            if(cad[i]&gt;= 'A' &amp;&amp; cad[i]&lt;= 'Z'){</span>
+<span class="fc" id="L202">                minus += (char)(cad[i] + ('a' - 'A'));</span>
+            }
+            else {
+<span class="pc bpc" id="L205" title="1 of 2 branches missed.">                if(cad[i] == 'Ñ'){</span>
+<span class="nc" id="L206">                    minus += 'ñ';</span>
+                }
+                else {
+<span class="fc" id="L209">                    minus += cad[i];</span>
+                }
+            }
+        }
+<span class="fc" id="L213">        return minus;</span>
+    }
+    /**
+     * Método que te indica la longitud de una cadena
+     * @param cadena: cadena a devolver su longitud
+     * @return: longitud de la cadena
+     */        
+    public static long longitudCadena(String cadena) {
+<span class="fc" id="L221">        int contador  = 0;</span>
+<span class="fc" id="L222">        char [] cad = cadena.toCharArray();</span>
+<span class="fc bfc" id="L223" title="All 2 branches covered.">        for(int i = 0; i &lt; cad.length; i++){</span>
+<span class="fc" id="L224">            contador++;</span>
+        }
+        // Otra opción sería devolver directamente--&gt; return cad.length; 
+<span class="fc" id="L227">        return contador;</span>
+    }
+    /**
+     * Método que comprueba si una cadena comienza con un determinado prefijo
+     * @param cadena:cadena comparar
+     * @param prefijo:sufijo a buscar
+     * @return: true si comienza por el prefijo false en caso contrario
+     */        
+    public boolean empiezaCon(String cadena, String prefijo){
+<span class="fc" id="L236">        boolean coincide = true;</span>
+<span class="fc" id="L237">        char cad[] = cadena.toCharArray();</span>
+<span class="fc" id="L238">        char buscar [] = prefijo.toCharArray();</span>
+<span class="fc" id="L239">        int i = 0;</span>
+<span class="pc bpc" id="L240" title="1 of 6 branches missed.">        for(; i &lt; cad.length &amp;&amp; i &lt; buscar.length &amp;&amp; coincide; i++){</span>
+<span class="pc bpc" id="L241" title="1 of 2 branches missed.">            if(cad[i] != buscar[i]){</span>
+<span class="nc" id="L242">                coincide = false;</span>
+            }
+        }
+<span class="fc bfc" id="L245" title="All 2 branches covered.">        if(i &lt; buscar.length) coincide = false;</span>
+<span class="fc" id="L246">        return coincide;</span>
+    }
+    /**
+     * Método que comprueba si una cadena acaba con un determinado sufijo
+     * @param cadena: cadena comparar
+     * @param sufijo: sufijo a buscar
+     * @return: true si acaba por el sufijo false en caso contrario
+     */            
+    public boolean acabaEn(String cadena, String sufijo){
+<span class="fc" id="L255">        boolean coincide = true;</span>
+<span class="fc" id="L256">        char cad[] = cadena.toCharArray();</span>
+<span class="fc" id="L257">        char buscar [] = sufijo.toCharArray();</span>
+<span class="fc" id="L258">        int i = cad.length - buscar.length;</span>
+<span class="fc bfc" id="L259" title="All 2 branches covered.">        if(i &gt; 0){</span>
+<span class="pc bpc" id="L260" title="1 of 4 branches missed.">            for(int j = 0; i &lt; cad.length &amp;&amp; coincide; i++, j++){</span>
+<span class="pc bpc" id="L261" title="1 of 2 branches missed.">                if(cad[i] != buscar[j]){</span>
+<span class="nc" id="L262">                    coincide = false;</span>
+                }
+            }
+<span class="fc" id="L265">        }else coincide = false;</span>
+<span class="fc" id="L266">        return coincide;</span>
+    }
+    /**
+     * Método que devuelve la primera posicion donde se encuentra una 
+     * determinada cadena
+     * @param cadena: cadena a buscar la regla
+     * @param buscar: subcadena a buscar
+     * @return: devuelve la posición donde se encuentra la subcadena en la 
+     * cadena, en el caso de no encontrarse devuelve -1
+     */    
+    public long posicionPrimeraCadena(String cadena, String buscar){
+<span class="fc" id="L277">        long posicion = -1;</span>
+<span class="fc" id="L278">        boolean encontrado = false;</span>
+<span class="fc" id="L279">        char [] cad = cadena.toCharArray();</span>
+<span class="fc" id="L280">        char [] search = buscar.toCharArray();</span>
+        
+<span class="pc bpc" id="L282" title="1 of 4 branches missed.">        for(int i = 0; !encontrado &amp;&amp; i &lt; cad.length; i++){</span>
+<span class="fc bfc" id="L283" title="All 2 branches covered.">            if(cad[i] == search[0]){</span>
+<span class="fc" id="L284">                encontrado = true;</span>
+<span class="fc" id="L285">                posicion = i;</span>
+<span class="fc bfc" id="L286" title="All 2 branches covered.">                for(int j = 1, z = i+1; j &lt; search.length; j++, z++){</span>
+<span class="fc bfc" id="L287" title="All 2 branches covered.">                    if(cad[z] != search[j]){</span>
+<span class="fc" id="L288">                        encontrado = false;</span>
+                    }
+                }
+            }
+        }
+<span class="fc" id="L293">        return posicion;</span>
+    }
+    /**
+     * Método extra que te devuelve un vector de enteros con todas las 
+     * posiciones donde se encuentra el substring a encontrar dentro de la 
+     * cadena. 
+     * @param cadena: cadena a buscar el substring
+     * @param buscar: substring a buscar dentro de la cadena
+     * @return: vector con las posiciones, suponemos que no hay más ocurrencias
+     * con un -1
+     */
+    public static int[] apareceEn(String cadena, String buscar){
+<span class="fc" id="L305">        int posicion[] = new int [cadena.length()-buscar.length()];</span>
+<span class="fc bfc" id="L306" title="All 2 branches covered.">        for(int i = 0; i &lt; posicion.length; i++) posicion[i] = -1;</span>
+        
+<span class="fc" id="L308">        boolean encontrado = false;</span>
+<span class="fc" id="L309">        char [] cad = cadena.toCharArray();</span>
+<span class="fc" id="L310">        char [] search = buscar.toCharArray();</span>
+        
+<span class="fc bfc" id="L312" title="All 2 branches covered.">        for(int i = 0, indice= 0; i &lt; cad.length; i++){</span>
+<span class="fc bfc" id="L313" title="All 2 branches covered.">            if(cad[i] == search[0]){</span>
+<span class="fc" id="L314">                encontrado = true;</span>
+<span class="fc" id="L315">                posicion[indice]= i;</span>
+<span class="fc bfc" id="L316" title="All 2 branches covered.">                for(int j = 1, z = i+1; j &lt; search.length; j++, z++){</span>
+<span class="pc bpc" id="L317" title="1 of 2 branches missed.">                    if(cad[z] != search[j]){</span>
+<span class="nc" id="L318">                        encontrado = false;</span>
+                    }
+                }
+<span class="pc bpc" id="L321" title="1 of 2 branches missed.">                if(!encontrado){</span>
+<span class="nc" id="L322">                    posicion[indice] = -1; // Si no estaba completo lo pongo a -1</span>
+                }
+                else{
+<span class="fc" id="L325">                    indice++;</span>
+                }
+            }
+        }
+<span class="fc" id="L329">        return posicion;</span>
+    }
+    /**
+     * Método que extrae una cadena desde una determinada posición 
+     * hasta el final de la cadena.
+     * @param cadena: cadena a substraer
+     * @param posicionInicio posicion inicial desde donde se substraerá
+     * @return cadena substraida
+     */
+    public static String extraerSubstring(String cadena, int posicionInicio){
+<span class="nc" id="L339">        String subString = &quot;&quot;;</span>
+<span class="nc" id="L340">        char [] cad = cadena.toCharArray();</span>
+        
+<span class="nc bnc" id="L342" title="All 4 branches missed.">        for(int i = posicionInicio; i &lt; cad.length &amp;&amp; i &lt; cad.length; i++){</span>
+<span class="nc" id="L343">            subString += cad[i];</span>
+        }
+<span class="nc" id="L345">        return subString;</span>
+    }
+    /**
+     * Método que extrae una cadena desde una determinada posición 
+     * hasta la posición final marcada.
+     * @param cadena: cadena a substraer
+     * @param posicionInicio posicion inicial desde donde se substraerá
+     * @param posicionFinal posición final hasta donde se substraerá
+     * @return cadena substraida
+     */    
+    public static String extraerSubstring(String cadena, int posicionInicio, int posicionFinal){
+<span class="nc" id="L356">        String subString = &quot;&quot;;</span>
+<span class="nc" id="L357">        char [] cad = cadena.toCharArray();</span>
+        
+<span class="nc bnc" id="L359" title="All 4 branches missed.">        for(int i = posicionInicio; i &lt;= posicionFinal &amp;&amp; i &lt; cad.length; i++){</span>
+<span class="nc" id="L360">            subString += cad[i];</span>
+        }
+<span class="nc" id="L362">        return subString;</span>
+    }
+    /**
+     * Método que devuevle dos cadenas unidas
+     * @param cadena1: primera cadena a unir
+     * @param cadena2 segunda cadena a unir
+     * @return cadena unida
+     */    
+    public static String concatenaCadenas(String cadena1, String cadena2){
+<span class="nc" id="L371">        String total = &quot;&quot;;</span>
+<span class="nc" id="L372">        char [] cad1 = cadena1.toCharArray();</span>
+<span class="nc" id="L373">        char [] cad2 = cadena2.toCharArray();</span>
+        
+<span class="nc bnc" id="L375" title="All 2 branches missed.">        for(int i = 0; i &lt; cad1.length; i++){</span>
+<span class="nc" id="L376">            total += cad1[i];</span>
+        }
+        
+<span class="nc bnc" id="L379" title="All 2 branches missed.">        for(int i = 0; i &lt; cad2.length; i++){</span>
+<span class="nc" id="L380">            total += cad2[i];</span>
+        }
+<span class="nc" id="L382">        return total;</span>
+    }  
+    
+    public static void main(String[] args) {
+//        out.println(sonLetras2(&quot;Rosa&quot;));
+//        out.println(sonLetras2(&quot;Ros4&quot;));
+//        
+//        out.println(concatenaCadenas(&quot;Rosa &quot;, &quot;Medina&quot;));
+//        
+//        out.println(extraerSubstring(&quot;Rosa&quot;, 2));
+//        out.println(extraerSubstring(&quot;Rosa&quot;, 6));
+//        out.println(extraerSubstring(&quot;Rosa Medina&quot;, 2, 4));
+//        out.println(extraerSubstring(&quot;Rosa&quot;, 4, 8));
+//        out.println(extraerSubstring(&quot;Rosa&quot;, 2, 8));
+//        
+//        out.println(posicionPrimeraCadena(&quot;Rosa Medina Rosa&quot;, &quot;sa&quot;));
+//        out.println(posicionPrimeraCadena(&quot;sa&quot;, &quot;Rosasa&quot;));
+//        
+//        out.println(acabaEn(&quot;Rosa Medina&quot;, &quot;ina&quot;));
+//        out.println(acabaEn(&quot;Rosa Medina&quot;, &quot;Ro&quot;));
+//        out.println(acabaEn(&quot;ro&quot; , &quot;rosa medina&quot;));
+//        out.println(empiezaCon(&quot;Rosa Medina&quot;, &quot;Ro&quot;));
+//        out.println(empiezaCon(&quot;Rosa Medina&quot;, &quot;ina&quot;));
+//        out.println(empiezaCon(&quot;ro&quot; , &quot;rosa medina&quot;));
+//        out.println(longitudCadena(&quot;Rosa Medina&quot;) + &quot; y &quot; + &quot;Rosa Medina&quot;.length());
+//        
+//        out.println(convertirMinusculas(&quot;Rosa Medina España 32&quot;));
+//        
+//        out.println(convertirMayusculas(&quot;Rosa Medina España 32&quot;));
+//        
+//        
+//        out.println(quitaEspacios(&quot;Rosa Medina 32&quot;));
+//        
+//        muestraSplit(&quot;Rosa Medinasa 32&quot;, &quot;sa&quot;);        
+//        muestraSplit(&quot;Rosa Medinasa 32sa 12&quot;, &quot;sa&quot;);
+        
+//        muestraSplitLimite(&quot;Rosa Medinasa 32sa 12&quot;, &quot;sa&quot;, 5);
+//        muestraSplitLimite(&quot;Rosa Medinasa 32sa 12&quot;, &quot;sa&quot;, 2);
+        
+//        out.println(reemplazaPrimero(&quot;HolaHolaHolaHola&quot; , &quot;Hol&quot;, &quot;Ros&quot;));
+//        
+//        out.println(reemplazaTodos(&quot;HolaHolaHolaHola&quot; , &quot;Hol&quot;, &quot;Ros&quot;));
+//        
+//        out.println(comparaIgnorandoMayusculas(&quot;Rosa&quot; , &quot;rosa&quot;));
+//        out.println(comparaIgnorandoMayusculas(&quot;rosa&quot; , &quot;rosa&quot;));
+//        out.println(comparaIgnorandoMayusculas(&quot;rosa&quot; , &quot;ros4&quot;));
+//        
+//        out.println(sonIguales(&quot;rosa&quot;, &quot;ro&quot;));
+//        out.println(sonIguales(&quot;rosa&quot;, &quot;rosa1&quot;));
+//        out.println(sonIguales(&quot;rosa&quot;, &quot;rosa&quot;));
+//        
+//        out.println(esMayor(&quot;rosa&quot;, &quot;ros&quot;));
+//        out.println(esMayor(&quot;rosa&quot;, &quot;roS&quot;));
+//        out.println(esMayor(&quot;ros&quot;, &quot;rosa&quot;));
+//        out.println(esMayor(&quot;rosA&quot;, &quot;rosa&quot;));
+//        out.println(esMayor(&quot;rosa&quot;, &quot;rosa&quot;));
+//        out.println(esMayor(&quot;rosa&quot;, &quot;rosA&quot;));
+//      
+//        out.println(esMenor(&quot;rosa&quot;, &quot;ros&quot;));
+//        out.println(esMenor(&quot;ros&quot;, &quot;rosa&quot;));
+//        out.println(esMenor(&quot;rosA&quot;, &quot;rosa&quot;));
+//        out.println(esMenor(&quot;rosa&quot;, &quot;rosa&quot;));
+//        out.println(esMenor(&quot;rosa&quot;, &quot;rosA&quot;));
+        
+        
+<span class="nc" id="L447">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>
