@@ -23,8 +23,8 @@ import static java.lang.System.out;
 <span class="fc" id="L23">        char [] vector2 = cadena2.toCharArray();</span>
         
 <span class="fc bfc" id="L25" title="All 4 branches covered.">        for(int i = 0; i &lt; l1 &amp;&amp; iguales; i++){</span>
-<span class="pc bpc" id="L26" title="1 of 2 branches missed.">            if(vector1[i] != vector2[i])</span>
-<span class="nc" id="L27">                iguales = false;</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">            if(vector1[i] != vector2[i])</span>
+<span class="fc" id="L27">                iguales = false;</span>
         }
 <span class="fc" id="L29">        return iguales;</span>
     }
@@ -76,14 +76,14 @@ import static java.lang.System.out;
 <span class="fc" id="L76">        int l1 = cadena1.length(), l2 = cadena2.length();</span>
 <span class="fc" id="L77">        boolean iguales = true;</span>
         
-<span class="pc bpc" id="L79" title="1 of 2 branches missed.">        if(l1!=l2) iguales = false; // Si ya vemos que son de diferentes tamaño no comprobamos nada más</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if(l1!=l2) iguales = false; // Si ya vemos que son de diferentes tamaño no comprobamos nada más</span>
         
 <span class="fc" id="L81">        char [] vector1 = convertirMayusculas(cadena1).toCharArray(); // Convierto el String a vector de caracteres</span>
 <span class="fc" id="L82">        char [] vector2 = convertirMayusculas(cadena2).toCharArray();</span>
         
-<span class="pc bpc" id="L84" title="2 of 4 branches missed.">        for(int i = 0; i &lt; l1 &amp;&amp; iguales; i++){</span>
-<span class="nc bnc" id="L85" title="All 2 branches missed.">            if(vector1[i] != vector2[i])</span>
-<span class="nc" id="L86">                iguales = false;</span>
+<span class="fc bfc" id="L84" title="All 4 branches covered.">        for(int i = 0; i &lt; l1 &amp;&amp; iguales; i++){</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">            if(vector1[i] != vector2[i])</span>
+<span class="fc" id="L86">                iguales = false;</span>
         }
 <span class="fc" id="L88">        return iguales;</span>
     }
@@ -135,8 +135,8 @@ import static java.lang.System.out;
 <span class="fc" id="L135">        int [] posicion = apareceEn(cadena, regla);</span>
         
 <span class="pc bpc" id="L137" title="1 of 2 branches missed.">        if(posicion[0] != - 1){ // Existe esa regla en la cadena</span>
-<span class="pc bpc" id="L138" title="1 of 2 branches missed.">            for(int i = 0; i &lt; posicion[0]; i++){</span>
-<span class="nc" id="L139">                reemplazada += cad[i];</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">            for(int i = 0; i &lt; posicion[0]; i++){</span>
+<span class="fc" id="L139">                reemplazada += cad[i];</span>
             }
 <span class="fc bfc" id="L141" title="All 2 branches covered.">            for(int i = 0; i &lt; replacement.length; i++){</span>
 <span class="fc" id="L142">                reemplazada += replacement[i];</span>
@@ -174,12 +174,12 @@ import static java.lang.System.out;
 <span class="fc" id="L174">        char [] cad = cadena.toCharArray();</span>
         
 <span class="fc bfc" id="L176" title="All 2 branches covered.">        for(int i = 0; i &lt; cad.length; i++){</span>
-<span class="pc bpc" id="L177" title="1 of 4 branches missed.">            if(cad[i]&gt;= 'a' &amp;&amp; cad[i]&lt;= 'z'){</span>
+<span class="fc bfc" id="L177" title="All 4 branches covered.">            if(cad[i]&gt;= 'a' &amp;&amp; cad[i]&lt;= 'z'){</span>
 <span class="fc" id="L178">                mayus += (char)(cad[i] - ('a' - 'A'));</span>
             }
             else {
-<span class="pc bpc" id="L181" title="1 of 2 branches missed.">                if(cad[i] == 'ñ'){</span>
-<span class="nc" id="L182">                    mayus += 'Ñ';</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">                if(cad[i] == 'ñ'){</span>
+<span class="fc" id="L182">                    mayus += 'Ñ';</span>
                 }
                 else {
 <span class="fc" id="L185">                    mayus += cad[i];</span>
@@ -202,8 +202,8 @@ import static java.lang.System.out;
 <span class="fc" id="L202">                minus += (char)(cad[i] + ('a' - 'A'));</span>
             }
             else {
-<span class="pc bpc" id="L205" title="1 of 2 branches missed.">                if(cad[i] == 'Ñ'){</span>
-<span class="nc" id="L206">                    minus += 'ñ';</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">                if(cad[i] == 'Ñ'){</span>
+<span class="fc" id="L206">                    minus += 'ñ';</span>
                 }
                 else {
 <span class="fc" id="L209">                    minus += cad[i];</span>
@@ -238,8 +238,8 @@ import static java.lang.System.out;
 <span class="fc" id="L238">        char buscar [] = prefijo.toCharArray();</span>
 <span class="fc" id="L239">        int i = 0;</span>
 <span class="pc bpc" id="L240" title="1 of 6 branches missed.">        for(; i &lt; cad.length &amp;&amp; i &lt; buscar.length &amp;&amp; coincide; i++){</span>
-<span class="pc bpc" id="L241" title="1 of 2 branches missed.">            if(cad[i] != buscar[i]){</span>
-<span class="nc" id="L242">                coincide = false;</span>
+<span class="fc bfc" id="L241" title="All 2 branches covered.">            if(cad[i] != buscar[i]){</span>
+<span class="fc" id="L242">                coincide = false;</span>
             }
         }
 <span class="fc bfc" id="L245" title="All 2 branches covered.">        if(i &lt; buscar.length) coincide = false;</span>
@@ -335,14 +335,14 @@ import static java.lang.System.out;
      * @param posicionInicio posicion inicial desde donde se substraerá
      * @return cadena substraida
      */
-    public static String extraerSubstring(String cadena, int posicionInicio){
-<span class="nc" id="L339">        String subString = &quot;&quot;;</span>
-<span class="nc" id="L340">        char [] cad = cadena.toCharArray();</span>
+    public String extraerSubstring(String cadena, int posicionInicio){
+<span class="fc" id="L339">        String subString = &quot;&quot;;</span>
+<span class="fc" id="L340">        char [] cad = cadena.toCharArray();</span>
         
-<span class="nc bnc" id="L342" title="All 4 branches missed.">        for(int i = posicionInicio; i &lt; cad.length &amp;&amp; i &lt; cad.length; i++){</span>
-<span class="nc" id="L343">            subString += cad[i];</span>
+<span class="pc bpc" id="L342" title="1 of 4 branches missed.">        for(int i = posicionInicio; i &lt; cad.length &amp;&amp; i &lt; cad.length; i++){</span>
+<span class="fc" id="L343">            subString += cad[i];</span>
         }
-<span class="nc" id="L345">        return subString;</span>
+<span class="fc" id="L345">        return subString;</span>
     }
     /**
      * Método que extrae una cadena desde una determinada posición 
@@ -352,14 +352,14 @@ import static java.lang.System.out;
      * @param posicionFinal posición final hasta donde se substraerá
      * @return cadena substraida
      */    
-    public static String extraerSubstring(String cadena, int posicionInicio, int posicionFinal){
-<span class="nc" id="L356">        String subString = &quot;&quot;;</span>
-<span class="nc" id="L357">        char [] cad = cadena.toCharArray();</span>
+    public String extraerSubstring(String cadena, int posicionInicio, int posicionFinal){
+<span class="fc" id="L356">        String subString = &quot;&quot;;</span>
+<span class="fc" id="L357">        char [] cad = cadena.toCharArray();</span>
         
-<span class="nc bnc" id="L359" title="All 4 branches missed.">        for(int i = posicionInicio; i &lt;= posicionFinal &amp;&amp; i &lt; cad.length; i++){</span>
-<span class="nc" id="L360">            subString += cad[i];</span>
+<span class="fc bfc" id="L359" title="All 4 branches covered.">        for(int i = posicionInicio; i &lt;= posicionFinal &amp;&amp; i &lt; cad.length; i++){</span>
+<span class="fc" id="L360">            subString += cad[i];</span>
         }
-<span class="nc" id="L362">        return subString;</span>
+<span class="fc" id="L362">        return subString;</span>
     }
     /**
      * Método que devuevle dos cadenas unidas
@@ -367,19 +367,19 @@ import static java.lang.System.out;
      * @param cadena2 segunda cadena a unir
      * @return cadena unida
      */    
-    public static String concatenaCadenas(String cadena1, String cadena2){
-<span class="nc" id="L371">        String total = &quot;&quot;;</span>
-<span class="nc" id="L372">        char [] cad1 = cadena1.toCharArray();</span>
-<span class="nc" id="L373">        char [] cad2 = cadena2.toCharArray();</span>
+    public String concatenaCadenas(String cadena1, String cadena2){
+<span class="fc" id="L371">        String total = &quot;&quot;;</span>
+<span class="fc" id="L372">        char [] cad1 = cadena1.toCharArray();</span>
+<span class="fc" id="L373">        char [] cad2 = cadena2.toCharArray();</span>
         
-<span class="nc bnc" id="L375" title="All 2 branches missed.">        for(int i = 0; i &lt; cad1.length; i++){</span>
-<span class="nc" id="L376">            total += cad1[i];</span>
+<span class="fc bfc" id="L375" title="All 2 branches covered.">        for(int i = 0; i &lt; cad1.length; i++){</span>
+<span class="fc" id="L376">            total += cad1[i];</span>
         }
         
-<span class="nc bnc" id="L379" title="All 2 branches missed.">        for(int i = 0; i &lt; cad2.length; i++){</span>
-<span class="nc" id="L380">            total += cad2[i];</span>
+<span class="fc bfc" id="L379" title="All 2 branches covered.">        for(int i = 0; i &lt; cad2.length; i++){</span>
+<span class="fc" id="L380">            total += cad2[i];</span>
         }
-<span class="nc" id="L382">        return total;</span>
+<span class="fc" id="L382">        return total;</span>
     }  
     
     public static void main(String[] args) {

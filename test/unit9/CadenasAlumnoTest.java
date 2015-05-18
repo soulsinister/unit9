@@ -37,6 +37,10 @@ public class CadenasAlumnoTest{
         cadena2 = "bla";
         expecteds = true;
         assertEquals(expecteds, ca.sonIguales(cadena1, cadena2));
+        
+        cadena2 = "blo";
+        expecteds = false;
+        assertEquals(expecteds, ca.sonIguales(cadena1, cadena2));
 
     }
         
@@ -50,9 +54,11 @@ public class CadenasAlumnoTest{
         expecteds = true;
         assertEquals(expecteds, ca.esMayor(cadena1, cadena2));
         
-        cadena2 = "blablabla";
+        cadena2 = "blobla";
         expecteds = false;
         assertEquals(expecteds, ca.esMayor(cadena1, cadena2));
+        
+        
     }
 
     @Test
@@ -69,7 +75,11 @@ public class CadenasAlumnoTest{
     public void testComparaIgnorandoMayusculas() {
         assertEquals(expecteds, ca.comparaIgnorandoMayusculas(cadena2, cadena1));
         
-        cadena2 = "blablabla";
+        cadena2 = "BLA";
+        expecteds = true;
+        assertEquals(expecteds, ca.comparaIgnorandoMayusculas(cadena2, cadena1));
+        
+        cadena2 = "BLo";
         expecteds = false;
         assertEquals(expecteds, ca.comparaIgnorandoMayusculas(cadena2, cadena1));
     }
@@ -86,17 +96,21 @@ public class CadenasAlumnoTest{
 
     @Test
     public void testReemplazaPrimero() {
-        cadena1 = "blablablabla";
-        cadena2 = "mam";
         
-        String expected = "mamablablabla";
+        
+        String expected = "bla2a";
         assertEquals(expected, ca.reemplazaPrimero(cadena1, "bl", cadena2));
+        cadena2 = "mama";
+        cadena1 = "mi bla";
+        expected = "mi mama";
+        assertEquals(expected, ca.reemplazaPrimero(cadena1, "bla", cadena2));
+        
 
     }
 
     @Test
     public void testQuitaEspacios() {
-        cadena1 = "   bla ";
+        cadena1 = "   b la ";
         
         String expected = "bla";
         assertEquals(expected, ca.quitaEspacios(cadena1));
@@ -104,23 +118,23 @@ public class CadenasAlumnoTest{
 
     @Test
     public void testConvertirMayusculas() {
-        cadena1 = "bLAaa";
+        cadena1 = "bLaña";
         
-        String expected = "BLAAA";
+        String expected = ca.convertirMinusculas(cadena1).toUpperCase();
         assertEquals(expected, ca.convertirMayusculas(cadena1));
     }
 
     @Test
     public void testConvertirMinusculas() {
-        cadena1 = "bLAaa";
+        cadena1 = "bLAÑa";
         
-        String expected = "blaaa";
+        String expected = ca.convertirMinusculas(cadena1).toLowerCase();
         assertEquals(expected, ca.convertirMinusculas(cadena1));
     }
 
     @Test
     public void testLongitudCadena() {
-        long expected = 3;
+        long expected = cadena1.length();
         assertEquals(expected, ca.longitudCadena(cadena1));
     }
 
@@ -128,7 +142,14 @@ public class CadenasAlumnoTest{
     public void testEmpiezaCon() {
         assertEquals(expecteds, ca.empiezaCon(cadena1, cadena2));
         cadena2 = "bl";
-        expecteds = true;
+        expecteds = expecteds = cadena1.startsWith(cadena2);
+        assertEquals(expecteds, ca.empiezaCon(cadena1, cadena2));
+        
+        cadena2 = "bla";
+        expecteds = expecteds = cadena1.startsWith(cadena2);
+        assertEquals(expecteds, ca.empiezaCon(cadena1, cadena2));
+        cadena2 = "B";
+        expecteds = expecteds = cadena1.startsWith(cadena2);
         assertEquals(expecteds, ca.empiezaCon(cadena1, cadena2));
     }
 
@@ -136,8 +157,11 @@ public class CadenasAlumnoTest{
     public void testAcabaEn() {
         assertEquals(expecteds, ca.acabaEn(cadena1, cadena2));
         cadena2 = "la";
-        expecteds = true;
+        expecteds = cadena1.endsWith(cadena2);
         assertEquals(expecteds, ca.acabaEn(cadena1, cadena2));
+        
+        assertEquals(false, ca.acabaEn("bla", "bla"));
+        
     }
 
     @Test
@@ -179,7 +203,7 @@ public class CadenasAlumnoTest{
 
     @Test
     public void testConcatenaCadenas() {
-        String expected = "blabla2";
+        String expected = cadena1.concat(cadena2);
         assertEquals(expected, ca.concatenaCadenas(cadena1, cadena2));
     }
 
